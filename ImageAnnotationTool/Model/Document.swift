@@ -24,7 +24,7 @@ class Document: NSDocument, ObservableObject {
     }
     
     func addImagesInfo(names: Set<String>) {
-        _ = names.map { imagesInfo[$0] = ImageInfo(imagefilename: $0) }
+        _ = names.map { imagesInfo[$0] = ImageInfo(image: $0) }
     }
     
     func delImagesInfo(names: Set<String>) {
@@ -74,7 +74,7 @@ class Document: NSDocument, ObservableObject {
             let decoder = JSONDecoder()
             decoder.userInfo[Document.docUserKey] = self
             let arrayImagesInfo = try decoder.decode([ImageInfo].self, from: data)
-            _ = arrayImagesInfo.map { imagesInfo[$0.imagefilename] = $0 }
+            _ = arrayImagesInfo.map { imagesInfo[$0.image] = $0 }
         } catch {
             throw error
         }

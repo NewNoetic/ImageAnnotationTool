@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: - Structure of JSON doc
 class ImageInfo: Codable, Equatable {
-    var imagefilename: String
+    var image: String
     var annotations: [ObjectAnnotation]?
     
     //MARK: - Annotation control
@@ -28,11 +28,11 @@ class ImageInfo: Codable, Equatable {
     }
     
     static func == (lhs: ImageInfo, rhs: ImageInfo) -> Bool {
-        lhs.imagefilename == rhs.imagefilename
+        lhs.image == rhs.image
     }
     
-    init(imagefilename: String, annotations: [ObjectAnnotation]? = nil) {
-        self.imagefilename = imagefilename
+    init(image: String, annotations: [ObjectAnnotation]? = nil) {
+        self.image = image
         self.annotations = annotations
     }
 }
