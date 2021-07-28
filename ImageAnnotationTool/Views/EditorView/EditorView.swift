@@ -34,8 +34,8 @@ struct EditorView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        EditorView(zoom: 0.2,
-                  size: CGSize(width: 400, height: 300))
+        EditorView(zoom: 1,
+                  size: CGSize(width: 800, height: 600))
             .environmentObject(Document())
     }
 }

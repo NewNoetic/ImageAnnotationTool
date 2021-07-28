@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var currentDoc: Document
-    @State private var zoom: CGFloat = 0.2
+    @State private var zoom: CGFloat = 1
     
     func zoomIn() { zoom = min(zoom + 0.2, 1.0) }
     func zoomOut() { zoom = max(zoom - 0.2, 0.2) }
@@ -41,7 +41,7 @@ struct MainView: View {
                     VStack {
                         Text(self.currentDoc.imageManager.currentImage?.description ?? "")
                             .font(.headline)
-                            .frame(width: geometry.size.width - 60, alignment: .leading)
+                            .frame(width: geometry.size.width, alignment: .leading)
                         Spacer()
                     }
 
@@ -56,6 +56,7 @@ struct MainView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
 }
